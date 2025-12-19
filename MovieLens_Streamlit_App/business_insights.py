@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+from pathlib import Path
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -32,17 +32,19 @@ st.markdown(
 # ==================================================
 # LOAD DATA
 # ==================================================
+
+BASE_DIR = Path(__file__).parent
 @st.cache_data
 def load_data():
     return {
-        "users": pd.read_csv("powerbi_user_stats.csv", parse_dates=["first_rating_date", "last_rating_date"]),
-        "movies": pd.read_csv("powerbi_movie_stats.csv"),
-        "genres": pd.read_csv("powerbi_genre_analysis.csv"),
-        "trends": pd.read_csv("powerbi_monthly_trends.csv", parse_dates=["date"]),
-        "tags": pd.read_csv("powerbi_tag_stats.csv"),
-        "tag_sentiment": pd.read_csv("powerbi_tag_sentiment.csv"),
-        "years": pd.read_csv("powerbi_year_performance.csv"),
-        "ratings": pd.read_csv("powerbi_ratings_sample.csv"),
+        "users": pd.read_csv("/powerbi_user_stats.csv", parse_dates=["first_rating_date", "last_rating_date"]),
+        "movies": pd.read_csv("/powerbi_movie_stats.csv"),
+        "genres": pd.read_csv("/powerbi_genre_analysis.csv"),
+        "trends": pd.read_csv("/powerbi_monthly_trends.csv", parse_dates=["date"]),
+        "tags": pd.read_csv("/powerbi_tag_stats.csv"),
+        "tag_sentiment": pd.read_csv("/powerbi_tag_sentiment.csv"),
+        "years": pd.read_csv("/powerbi_year_performance.csv"),
+        "ratings": pd.read_csv("/powerbi_ratings_sample.csv"),
     }
 
 data = load_data()
