@@ -268,14 +268,14 @@ BASE_DIR = Path(__file__).parent
 def load_data():
     try:
         return {
-            "users": pd.read_csv("/powerbi_user_stats.csv", parse_dates=["first_rating_date", "last_rating_date"]),
-            "movies": pd.read_csv("/powerbi_movie_stats.csv"),
-            "genres": pd.read_csv("/powerbi_genre_analysis.csv"),
-            "trends": pd.read_csv("/powerbi_monthly_trends.csv", parse_dates=["date"]),
-            "tags": pd.read_csv("/powerbi_tag_stats.csv"),
-            "tag_sentiment": pd.read_csv("/powerbi_tag_sentiment.csv"),
-            "years": pd.read_csv("/powerbi_year_performance.csv"),
-            "ratings": pd.read_csv("/powerbi_ratings_sample.csv"),
+            "users": pd.read_csv("./powerbi_user_stats.csv", parse_dates=["first_rating_date", "last_rating_date"]),
+            "movies": pd.read_csv("./powerbi_movie_stats.csv"),
+            "genres": pd.read_csv("./powerbi_genre_analysis.csv"),
+            "trends": pd.read_csv("./powerbi_monthly_trends.csv", parse_dates=["date"]),
+            "tags": pd.read_csv("./powerbi_tag_stats.csv"),
+            "tag_sentiment": pd.read_csv("./powerbi_tag_sentiment.csv"),
+            "years": pd.read_csv("./powerbi_year_performance.csv"),
+            "ratings": pd.read_csv("./powerbi_ratings_sample.csv"),
         }
     except Exception as e:
         st.error(f"Error loading data: {e}")
